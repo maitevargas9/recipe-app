@@ -1,18 +1,18 @@
 <body>
   <mat-tab-group>
     <mat-tab label="Starter">
-      <div>
-        <app-recipe></app-recipe>
+      <div *ngFor="let s of starters">
+        <app-recipe [dish]="s"></app-recipe>
       </div>
     </mat-tab>
     <mat-tab label="Main Dish">
-      <div>
-        <app-recipe></app-recipe>
+      <div *ngFor="let md of mainDishes">
+        <app-recipe [dish]="md"></app-recipe>
       </div>
     </mat-tab>
     <mat-tab label="Dessert">
-      <div>
-        <app-recipe></app-recipe>
+      <div *ngFor="let d of desserts">
+        <app-recipe [dish]="d"></app-recipe>
       </div>
     </mat-tab>
   </mat-tab-group>

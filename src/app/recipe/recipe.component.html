@@ -1,18 +1,18 @@
 <body>
   <mat-card appearance="outlined">
     <mat-card-header>
-      <mat-card-title> {{ di.nameRecipe }} </mat-card-title>
+      <mat-card-title> {{ dish?.nameRecipe }} </mat-card-title>
     </mat-card-header>
     <mat-card-content>
       <div>
-        <p> Portions: {{ di.portion }} </p>
+        <p> Portions: {{ dish?.portion }} </p>
         <p>
           Ingredients:
-          <span *ngFor="let ing of di.ingredients">
+          <span *ngFor="let ing of dish?.ingredients">
             {{ ing.amount }} {{ ing.ingredient }}
           </span>
         </p>
-        <p> Description: {{ di.description }} </p>
+        <p> Description: {{ dish?.description }} </p>
       </div>
     </mat-card-content>
     <mat-card-actions>

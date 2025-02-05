@@ -2,19 +2,9 @@ import { Component } from '@angular/core';
 import { MatTableModule } from '@angular/material/table';
 import { Ingredient } from '../shared/ingredient';
 import { RecipeComponent } from '../recipe/recipe.component';
-import { IngredientsList } from '../shared/ingredientsList';
+import { ShoppinglistService } from '../dishes/shoppinglist.service';
 
-export interface ShoppingList {
-  amount: number;
-  ingredient: string;
-}
-
-const DATA_LIST: ShoppingList[] = [
-  { amount: 250, ingredient: 'g mascarpone' },
-  { amount: 250, ingredient: 'g quark' },
-];
-
-let ingredientsList: IngredientsList[] = [];
+// let ingredientList: IngredientsList[] = [];
 
 @Component({
   selector: 'app-shopping-list',
@@ -24,8 +14,13 @@ let ingredientsList: IngredientsList[] = [];
   styleUrl: './shopping-list.component.scss',
 })
 export class ShoppingListComponent {
-  constructor() {}
-  shoppingList: ShoppingList | null = null;
+  constructor(private shoppinglistService: ShoppinglistService) {
+    this.shoppinglistService;
+  }
+
+  ingredientList: Ingredient[] = [];
+  ingredienList = this.shoppinglistService.getShoppinglist();
+
   displayedColumns: string[] = ['amount', 'ingredient'];
-  dataSource = ingredientsList;
+  dataSource = this.ingredientList;
 }

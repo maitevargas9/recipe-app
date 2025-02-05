@@ -7,7 +7,6 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Recipe } from '../shared/recipe';
 import { Ingredient } from '../shared/ingredient';
-import { IngredientsList } from '../shared/ingredientsList';
 
 @Component({
   selector: 'app-recipe',
@@ -30,9 +29,7 @@ export class RecipeComponent implements OnInit {
 
   ingredientList: Ingredient[] = [];
 
-  constructor() {
-    const list: IngredientsList[] = [];
-  }
+  constructor() {}
 
   ngOnInit() {}
 

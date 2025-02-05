@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { RecipeComponent } from './../recipe/recipe.component';
 import { Recipe } from '../shared/recipe';
-import { ShoppingList } from '../shared/shoppinglist';
 import { StartersService } from '../dishes/starters.service';
 import { MaindishesService } from '../dishes/maindishes.service';
 import { DessertsService } from '../dishes/desserts.service';

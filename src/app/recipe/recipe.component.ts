@@ -6,6 +6,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule, NgForm } from '@angular/forms';
 import { Recipe } from '../shared/recipe';
+import { Ingredient } from '../shared/ingredient';
+import { IngredientsList } from '../shared/ingredientsList';
 
 @Component({
   selector: 'app-recipe',
@@ -24,12 +26,23 @@ import { Recipe } from '../shared/recipe';
 export class RecipeComponent implements OnInit {
   @Input() dish: Recipe | null = null;
   portion = this.dish?.portion;
+  ingredients = this.dish?.ingredients!;
 
-  constructor() {}
+  ingredientList: Ingredient[] = [];
+
+  constructor() {
+    const list: IngredientsList[] = [];
+  }
 
   ngOnInit() {}
 
   onChange(port: number) {
     console.log(port);
   }
+
+  addIngredients(item: Ingredient[]) {
+    this.ingredientList = item;
+  }
+
+  list = this.ingredientList;
 }

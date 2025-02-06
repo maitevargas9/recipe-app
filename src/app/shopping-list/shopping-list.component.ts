@@ -1,26 +1,26 @@
 import { Component } from '@angular/core';
-import { MatTableModule } from '@angular/material/table';
+import { MatTableModule, MatTableDataSource } from '@angular/material/table';
+import { MatButtonModule } from '@angular/material/button';
 import { Ingredient } from '../shared/ingredient';
-import { RecipeComponent } from '../recipe/recipe.component';
 import { ShoppinglistService } from '../dishes/shoppinglist.service';
-
-// let ingredientList: IngredientsList[] = [];
 
 @Component({
   selector: 'app-shopping-list',
   standalone: true,
-  imports: [MatTableModule],
+  imports: [MatTableModule, MatButtonModule],
   templateUrl: './shopping-list.component.html',
   styleUrl: './shopping-list.component.scss',
 })
 export class ShoppingListComponent {
+  shoppingList: Ingredient[] = [];
+
   constructor(private shoppinglistService: ShoppinglistService) {
-    this.shoppinglistService;
+    this.getShoppinglist();
   }
 
-  ingredientList: Ingredient[] = [];
-  ingredienList = this.shoppinglistService.getShoppinglist();
+  getShoppinglist(): void {
+    this.shoppingList = this.shoppinglistService.getShoppinglist();
+  }
 
   displayedColumns: string[] = ['amount', 'ingredient'];
-  dataSource = this.ingredientList;
 }

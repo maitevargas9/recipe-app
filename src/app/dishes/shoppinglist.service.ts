@@ -9,7 +9,7 @@ export class ShoppinglistService {
 
   Shoppinglist: Ingredient[] = [
     { amount: 200, ingredient: 'ml cream' },
-    { amount: 200, ingredient: 'ml cream' },
+    { amount: 200, ingredient: 'ml lemon juice' },
   ];
   getShoppinglist(): Ingredient[] {
     return this.Shoppinglist;

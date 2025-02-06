@@ -40,6 +40,4 @@ export class RecipeComponent implements OnInit {
   addIngredients(item: Ingredient[]) {
     this.ingredientList = item;
   }
-
-  list = this.ingredientList;
 }

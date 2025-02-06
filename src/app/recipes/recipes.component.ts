@@ -2,12 +2,13 @@ import { Component } from '@angular/core';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
-import { RecipeComponent } from './../recipe/recipe.component';
 import { Recipe } from '../shared/recipe';
+import { Ingredient } from '../shared/ingredient';
+import { RecipeComponent } from './../recipe/recipe.component';
+import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 import { StartersService } from '../dishes/starters.service';
 import { MaindishesService } from '../dishes/maindishes.service';
 import { DessertsService } from '../dishes/desserts.service';
-import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
 
 @Component({
   selector: 'app-recipes',
@@ -26,6 +27,7 @@ export class RecipesComponent {
   starters: Recipe[] = [];
   mainDishes: Recipe[] = [];
   desserts: Recipe[] = [];
+  shoppingList: Ingredient[] = [];
 
   constructor(
     private startersService: StartersService,
@@ -48,6 +50,4 @@ export class RecipesComponent {
   getDesserts(): void {
     this.desserts = this.dessertsService.getDesserts();
   }
-
-  x = this.getStarters();
 }

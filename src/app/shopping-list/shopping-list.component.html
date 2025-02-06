@@ -1,5 +1,5 @@
 <body>
-  <table class="example-table mat-elevation-z8" mat-table [dataSource]="dataSource">
+  <table mat-table [dataSource]="shoppingList">
     <ng-container matColumnDef="amount">
       <th mat-header-cell *matHeaderCellDef> Amount </th>
       <td mat-cell *matCellDef="let element"> {{element.amount}} </td>

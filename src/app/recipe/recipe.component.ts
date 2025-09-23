@@ -4,7 +4,9 @@ import { Ingredient } from '../shared/ingredient';
 import { ShoppinglistService } from '../dishes/shoppinglist.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatListModule } from '@angular/material/list';
 import { MatInputModule } from '@angular/material/input';
+import { MatExpansionModule } from '@angular/material/expansion';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
@@ -14,7 +16,9 @@ import { CommonModule } from '@angular/common';
   imports: [
     MatCardModule,
     MatButtonModule,
+    MatListModule,
     MatInputModule,
+    MatExpansionModule,
     FormsModule,
     CommonModule,
   ],
@@ -39,15 +43,14 @@ export class RecipeComponent implements OnInit {
   }
 
   updateScaledIngredients() {
-    if (!this.dish) return;
+    if (!this.dish) {
+      return;
+    }
 
     this.scaledIngredients = this.ingredients.map((ing) => {
       const originalAmount = Number(ing.amount);
       const scaledAmount = originalAmount * (this.portion / this.dish!.portion);
-      return {
-        ...ing,
-        amount: scaledAmount,
-      };
+      return { ...ing, amount: scaledAmount };
     });
   }
 

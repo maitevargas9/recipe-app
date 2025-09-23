@@ -1,8 +1,54 @@
-mat-form-field {
-  margin-left: 8px;
+.section-title {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 0 4px 0;
+  color: rgba(0, 0, 0, 0.87);
 }
 
-input.without-spin::-webkit-outer-spin-button,
-input.without-spin::-webkit-inner-spin-button {
-  display: none;
+mat-list {
+  padding: 0;
+}
+
+mat-list-item,
+p {
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+mat-list-item {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+p {
+  margin: 4px 0 0 0;
+}
+
+.recipe-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 16px;
+}
+
+.portion-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  span {
+    font-weight: 500;
+    font-size: 14px;
+  }
+
+  input[matInput] {
+    width: 80px;
+    height: 36px;
+    text-align: center;
+    padding: 0 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+  }
 }

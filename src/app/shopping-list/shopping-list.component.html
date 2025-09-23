@@ -1,6 +1,7 @@
-<body>
+<div>
   <ul>
     <li *ngFor="let ing of ingredients">{{ ing.amount }} {{ ing.ingredient }}</li>
   </ul>
+  &nbsp;
   <button mat-flat-button (click)="generatePdf()">Create PDF</button>
-</body>
+</div>

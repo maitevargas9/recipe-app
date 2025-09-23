@@ -34,7 +34,7 @@ export class ShoppingListComponent implements OnInit {
     }
 
     const docDefinition = {
-      pageSize: 'A5',
+      pageSize: 'A4',
       pageMargins: [40, 40, 40, 40],
       content: [
         {

@@ -20,14 +20,11 @@
   </mat-card-content>
 
   <mat-card-actions style="display: flex; align-items: center; gap: 16px;">
-    <!-- Portions Label + Input -->
     <div style="display: flex; align-items: center; gap: 8px;">
       <span>Portions</span>
       <input matInput type="number" [(ngModel)]="portion" (ngModelChange)="onChange($event)" min="1"
         style="width: 80px; height: 36px; text-align: center; padding: 0 4px; border: 1px solid #ccc; border-radius: 4px;" />
     </div>
-
-    <!-- Add Button -->
     <button mat-flat-button color="primary" (click)="addIngredients()">
       Add
     </button>

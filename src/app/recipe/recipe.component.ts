@@ -4,17 +4,16 @@ import { Ingredient } from '../shared/ingredient';
 import { ShoppinglistService } from '../dishes/shoppinglist.service';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+
 @Component({
   selector: 'app-recipe',
   standalone: true,
   imports: [
     MatCardModule,
     MatButtonModule,
-    MatFormFieldModule,
     MatInputModule,
     FormsModule,
     CommonModule,

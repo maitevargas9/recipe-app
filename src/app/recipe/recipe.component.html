@@ -1,40 +1,36 @@
-<body>
-  <mat-card appearance="outlined">
-    <mat-card-header>
-      <mat-card-title> {{ dish?.nameRecipe }} </mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>
-        <div>
-          Ingredients:
-          <span *ngFor="let ing of dish?.ingredients">
-            <li>
-              {{ ing.amount }} {{ ing.ingredient }}
-            </li>
-          </span>
-        </div>
-        <div>
-          Description:
-          <div> {{ dish?.description }} </div>
-        </div>
-      </div>
-    </mat-card-content>
-    <mat-card-actions>
-      <div> Portions: {{ dish?.portion }} </div>
-      <!--<div>
-        <mat-form-field appearance="outline">
-          <mat-label> Portions </mat-label>
-          <input matInput type="number" [(ngModel)]="portion" (ngModelChange)="onChange($event)" class="without-spin"
-            placeholder="{{ dish?.portion }}" />
-        </mat-form-field>
-      </div>-->
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>{{ dish?.nameRecipe }}</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content>
+    <div>
+      Ingredients:
+      <ul>
+        <li *ngFor="let ing of scaledIngredients">
+          {{ ing.amount }} {{ ing.ingredient }}
+        </li>
+      </ul>
+    </div>
+
+    <div>
+      Description:
+      <div>{{ dish?.description }}</div>
+    </div>
+  </mat-card-content>
+
+  <mat-card-actions style="display: flex; align-items: center; gap: 16px;">
+    <div>
+      Portions
       &nbsp;
-      &nbsp;
-      <div>
-        <button mat-flat-button (click)="addIngredients(ingredients)">
-          Add
-        </button>
-      </div>
-    </mat-card-actions>
-  </mat-card>
-</body>
+      <mat-form-field appearance="outline" style="width: 80px; margin: 0;">
+        <input matInput type="number" [(ngModel)]="portion" (ngModelChange)="onChange($event)" min="1" />
+      </mat-form-field>
+    </div>
+    &nbsp;
+    &nbsp;
+    <button mat-flat-button color="primary" (click)="addIngredients()">
+      Add
+    </button>
+  </mat-card-actions>
+</mat-card>

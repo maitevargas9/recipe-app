@@ -18,7 +18,7 @@ export class ShoppingListComponent implements OnInit {
   constructor(private shoppingListService: ShoppinglistService) {}
 
   async ngOnInit(): Promise<void> {
-    this.ingredients = this.shoppingListService.getShoppinglist();
+    this.ingredients = this.shoppingListService.getIngredients();
 
     const pdfMakeModule = await import('pdfmake/build/pdfmake');
     const pdfFontsModule = await import('pdfmake/build/vfs_fonts');

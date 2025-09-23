@@ -5,19 +5,26 @@ import { Ingredient } from '../shared/ingredient';
   providedIn: 'root',
 })
 export class ShoppinglistService {
-  /*constructor() {}
+  private ingredients: Ingredient[] = [];
 
-  Shoppinglist: Ingredient[] = [
-    { amount: 200, ingredient: 'ml cream' },
-    { amount: 200, ingredient: 'ml lemon juice' },
-  ];*/
+  addIngredients(items: Ingredient[]) {
+    items.forEach((item) => {
+      const existing = this.ingredients.find(
+        (i) => i.ingredient === item.ingredient
+      );
+      if (existing) {
+        existing.amount = Number(existing.amount) + Number(item.amount);
+      } else {
+        this.ingredients.push({ ...item });
+      }
+    });
+  }
 
-  Shoppinglist: Ingredient[] = [
-    { amount: 2, ingredient: 'Bananen' },
-    { amount: 1, ingredient: 'l Milch' },
-    { amount: 1, ingredient: 'Pck Vanillinzucker' },
-  ];
-  getShoppinglist(): Ingredient[] {
-    return this.Shoppinglist;
+  getIngredients(): Ingredient[] {
+    return this.ingredients;
+  }
+
+  clearIngredients() {
+    this.ingredients = [];
   }
 }

@@ -1,43 +1,65 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
-import { MatButtonModule } from '@angular/material/button';
-import { CommonModule } from '@angular/common';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { FormsModule, NgForm } from '@angular/forms';
 import { Recipe } from '../shared/recipe';
 import { Ingredient } from '../shared/ingredient';
-
+import { ShoppinglistService } from '../dishes/shoppinglist.service';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-recipe',
   standalone: true,
   imports: [
     MatCardModule,
     MatButtonModule,
-    CommonModule,
-    MatInputModule,
     MatFormFieldModule,
+    MatInputModule,
     FormsModule,
+    CommonModule,
   ],
   templateUrl: './recipe.component.html',
-  styleUrl: './recipe.component.scss',
+  styleUrls: ['./recipe.component.scss'],
 })
 export class RecipeComponent implements OnInit {
   @Input() dish: Recipe | null = null;
-  portion = this.dish?.portion;
-  ingredients = this.dish?.ingredients!;
 
-  ingredientList: Ingredient[] = [];
+  portion!: number;
+  ingredients: Ingredient[] = [];
+  scaledIngredients: Ingredient[] = [];
 
-  constructor() {}
+  constructor(private shoppingListService: ShoppinglistService) {}
 
-  ngOnInit() {}
-
-  onChange(port: number) {
-    console.log(port);
+  ngOnInit() {
+    if (this.dish) {
+      this.portion = this.dish.portion;
+      this.ingredients = this.dish.ingredients;
+      this.updateScaledIngredients();
+    }
   }
 
-  addIngredients(item: Ingredient[]) {
-    this.ingredientList = item;
+  updateScaledIngredients() {
+    if (!this.dish) return;
+
+    this.scaledIngredients = this.ingredients.map((ing) => {
+      const originalAmount = Number(ing.amount);
+      const scaledAmount = originalAmount * (this.portion / this.dish!.portion);
+      return {
+        ...ing,
+        amount: scaledAmount,
+      };
+    });
+  }
+
+  onChange(newPortion: number) {
+    this.portion = newPortion;
+    this.updateScaledIngredients();
+  }
+
+  addIngredients() {
+    if (this.scaledIngredients.length) {
+      this.shoppingListService.addIngredients(this.scaledIngredients);
+    }
   }
 }

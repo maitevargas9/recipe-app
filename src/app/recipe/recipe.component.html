@@ -10,11 +10,11 @@
       <mat-card appearance="outlined">
         <mat-card-content>
           <h4 class="section-title">Ingredients</h4>
-          <mat-list>
-            <mat-list-item *ngFor="let ing of scaledIngredients">
+          <ul class="ingredients-list">
+            <li *ngFor="let ing of scaledIngredients">
               {{ ing.amount }} {{ ing.ingredient }}
-            </mat-list-item>
-          </mat-list>
+            </li>
+          </ul>
 
           <h4 class="section-title">Description</h4>
           <p>{{ dish?.description }}</p>

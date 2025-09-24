@@ -11,6 +11,7 @@ export class DessertsService {
     {
       nameRecipe: 'Raspberry Dessert with Speculatius',
       dish: 'Dessert',
+      dietType: 'Vegetarian',
       portion: 8,
       ingredients: [
         { amount: 200, ingredient: 'ml cream' },

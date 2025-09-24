@@ -11,6 +11,7 @@ export class StartersService {
     {
       nameRecipe: 'Greek Salad',
       dish: 'Starter',
+      dietType: 'Vegetarian',
       portion: 4,
       ingredients: [
         { amount: 500, ingredient: 'g tomatoes' },

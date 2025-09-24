@@ -11,6 +11,7 @@ export class MaindishesService {
     {
       nameRecipe: 'Pasta with tomato sauce',
       dish: 'Main Dish',
+      dietType: 'Non vegetarian/vegan',
       portion: 5,
       ingredients: [
         { amount: 500, ingredient: 'g pasta (Penne)' },

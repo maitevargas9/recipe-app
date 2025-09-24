@@ -64,4 +64,12 @@ export class RecipeComponent implements OnInit {
       this.shoppingListService.addIngredients(this.scaledIngredients);
     }
   }
+
+  get ingredientsText(): string {
+    return this.scaledIngredients && this.scaledIngredients.length > 0
+      ? this.scaledIngredients
+          .map((ing) => `${ing.amount} ${ing.ingredient}`)
+          .join(', ')
+      : '';
+  }
 }

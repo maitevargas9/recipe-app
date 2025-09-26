@@ -1,4 +1,40 @@
-table {
-  width: 100%;
-  overflow: auto;
+div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 8px 0;
+
+  ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4px;
+
+    li {
+      font-size: 14px;
+      line-height: 1.4;
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    &:has(li:nth-child(n+6)) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 8px 16px;
+    }
+  }
+
+  button[mat-flat-button] {
+    align-self: flex-start;
+    margin-left: 8px;
+    padding: 6px 20px;
+    font-size: 14px;
+    color: white;
+    background-color: #1976d2;
+    border-radius: 20px;
+
+    &:hover {
+      background-color: #1565c0;
+    }
+  }
 }

@@ -1,34 +1,32 @@
-<body>
-  <mat-accordion>
-    <mat-expansion-panel hideToggle>
-      <mat-expansion-panel-header>
-        <mat-panel-title>
-          {{ dish?.nameRecipe }}
-        </mat-panel-title>
-        <mat-panel-description>
-          {{ dish?.dietType }}
-        </mat-panel-description>
-      </mat-expansion-panel-header>
+<mat-accordion class="recipe-accordion">
+  <mat-expansion-panel hideToggle>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        {{ dish?.nameRecipe }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ dish?.dietType }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
 
-      <mat-card appearance="outlined">
-        <mat-card-content>
-          <h4 class="section-title">Ingredients</h4>
-          <p class="ingredients-text">{{ ingredientsText }}</p>
+    <mat-card appearance="outlined">
+      <mat-card-content>
+        <h4 class="section-title">Ingredients</h4>
+        <p class="ingredients-text">{{ ingredientsText }}</p>
 
-          <h4 class="section-title">Description</h4>
-          <p>{{ dish?.description }}</p>
-        </mat-card-content>
+        <h4 class="section-title">Description</h4>
+        <p>{{ dish?.description }}</p>
+      </mat-card-content>
 
-        <mat-card-actions class="recipe-actions">
-          <div class="portion-control">
-            <span>Portions</span>
-            <input matInput type="number" [(ngModel)]="portion" (ngModelChange)="onChange($event)" min="1" />
-          </div>
-          <button mat-flat-button color="primary" (click)="addIngredients()">
-            Add
-          </button>
-        </mat-card-actions>
-      </mat-card>
-    </mat-expansion-panel>
-  </mat-accordion>
-</body>
+      <mat-card-actions class="recipe-actions">
+        <div class="portion-control">
+          <span>Portions</span>
+          <input matInput type="number" [(ngModel)]="portion" (ngModelChange)="onChange($event)" min="1" />
+        </div>
+        <button mat-flat-button color="primary" (click)="addIngredients()">
+          Add
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-expansion-panel>
+</mat-accordion>

@@ -1,0 +1,34 @@
+.tab-label {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: 4px;
+  color: black;
+  font-weight: 500;
+  text-transform: none;
+  transition: background-color 0.3s;
+
+  &.starter {
+    background-color: #FFCDD2;
+  }
+
+  &.main {
+    background-color: #C8E6C9;
+  }
+
+  &.dessert {
+    background-color: #BBDEFB;
+  }
+
+  &.shopping {
+    background-color: #FFF9C4;
+  }
+
+  &:hover {
+    filter: brightness(0.9);
+  }
+}
+
+.mat-tab-label.mat-tab-label-active .tab-label {
+  font-weight: bold;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.3);
+}

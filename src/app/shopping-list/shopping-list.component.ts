@@ -51,4 +51,9 @@ export class ShoppingListComponent implements OnInit {
 
     this.pdfMake.createPdf(docDefinition).open();
   }
+
+  clearList() {
+    this.shoppingListService.clearIngredients();
+    this.ingredients = [];
+  }
 }
